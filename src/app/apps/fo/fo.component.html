@@ -1,3 +1,102 @@
-<p>
-  fo works!
-</p>
+<div class="container">
+  <div class="row">
+    <div id="attribute" class="col-md-8 offset-md-2 col-12 mt-3" style="background-color: gray">
+
+      <div class="card">
+        <div class="card-header d-flex" id="headingOne" >
+          <div class="col-10"><h5  (click)="switchCollapse()">Clôture OF</h5></div>
+          <div class="col-2 d-flex">
+
+            <button id="collapse-btn" (click)="switchImage()" class="btn btn-link collapse-button ml-auto "
+                    data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            </button>
+          </div>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#attribute" >
+          <div class="card-body">
+            <div class="card-body">
+              <table class="table-responsive">
+                <tbody>
+
+                  <!-- N°série -->
+                  <tr>
+                    <td><h5 class="text-info">N°série</h5></td>
+                    <td><h5 class="text-danger"><b>1002LLO1LLS</b></h5></td>
+                  </tr>
+
+                  <!-- Métrage -->
+                  <tr>
+                    <td><h5 class="text-info">Métrage</h5></td>
+                    <td><h5 class="text-danger"><b>6000 m</b></h5></td>
+                  </tr>
+
+                  <!-- Laize -->
+                  <tr>
+                    <td><h5 class="text-info">Laize</h5></td>
+                    <td><h5 class="text-danger"><b>63.31</b></h5></td>
+                  </tr>
+
+                  <!-- Machine -->
+                  <tr>
+                    <td><h5 class="text-info">Machine</h5></td>
+                    <td><h5 class="text-danger"><b>MAT24</b></h5></td>
+                  </tr>
+
+                  <!-- Chaîne -->
+                  <tr>
+                    <td><h5 class="text-info">Chaîne</h5></td>
+                    <td><h5 class="text-danger"><b>21</b></h5></td>
+                  </tr>
+
+                  <!-- OF -->
+                  <tr>
+                    <td><h5 class="text-info">OF</h5></td>
+                    <td><h5 class="text-danger"><b>OF000021</b></h5></td>
+                  </tr>
+
+                  <!-- Début -->
+                  <tr>
+                    <td><h5 class="text-info">Début</h5></td>
+                    <td><h5 class="text-danger"><b>2018-09-12 02:29</b></h5></td>
+                  </tr>
+
+                  <!-- OF -->
+                  <tr>
+                    <td><h5 class="text-info">Fin</h5></td>
+                    <td><h5 class="text-danger"><b>2018-09-12 02:29</b></h5></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+        <table class="table table-responsive">
+          <thead class="text-info">
+          <tr>
+            <th>Itér.</th>
+            <th>Opérateur</th>
+            <th>Métrage</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><h5>Me</h5></td>
+            <td><h5>irgendwas</h5></td>
+            <td><h5>hier</h5></td>
+          </tr>
+          <tr>
+            <td><h5>Not Me</h5></td>
+            <td><h5>irgendwas</h5></td>
+            <td><h5>avant hier</h5></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+</div>
