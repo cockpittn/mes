@@ -1,0 +1,214 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 col-12 mt-3" style="background-color: gray">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <h4 class="text-center">
+              Affectation
+            </h4>
+          </h5>
+        </div>
+        <div class="card-body">
+          <table class="table-responsive">
+
+            <tbody>
+
+            <!--date-->
+            <tr>
+              <td><h5>Date</h5></td>
+              <td>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control" placeholder="yyyy-mm-dd"
+                             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn cal-button" (click)="d.toggle()" type="button"></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </td>
+            </tr>
+
+            <!--Poste-->
+            <tr>
+              <td><h5>Poste</h5></td>
+              <td>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle text-center" type="button" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{poste}}
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" (click)="selectPoste('-')">-</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" (click)="selectPoste('Poste 1')">Poste 1</a>
+                    <a class="dropdown-item" (click)="selectPoste('Poste 2')">Poste 2</a>
+                    <a class="dropdown-item" (click)="selectPoste('Poste 3')">Poste 3</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <!--Heure-->
+            <tr>
+              <td class="align-middle"><h5>Heure</h5></td>
+              <td>
+                <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+              </td>
+            </tr>
+
+            <!---->
+            <tr>
+              <td>
+                <button class="btn btn-primary btn-block"> Affecter</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="align-middle">
+                <button class="btn btn-primary btn-block">Visualiser</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <h4 class="text-center">
+              Parametre
+            </h4>
+          </h5>
+        </div>
+        <div class="card-body">
+          <form #parametreForm=ngForm (ngSubmit)="onSubmitParameter()">
+
+            <!-- Error alert-->
+            <div class="alert alert-danger" [hidden]=!error>
+              {{error}}
+            </div>
+
+            <!-- Production toile-->
+            <div class="form-group row">
+              <label for="inputProduction_toile" class="col-12 text-center text-sm-left col-sm-5  col-lg-3 col-form-label">Production toile</label>
+              <div class="col-12 col-sm-7  col-lg-9">
+                <input  type="text"
+                        name="production_toile"
+                        class="form-control"
+                        id="inputProduction_toile"
+                        [(ngModel)]="form.production_toile"
+                >
+              </div>
+            </div>
+
+            <!-- Rendement-->
+            <div class="form-group row">
+              <label for="inputRendement" class="col-12 text-center text-sm-left col-sm-5  col-lg-3 col-form-label">Rendement</label>
+              <div class="col-12 col-sm-7  col-lg-9">
+                <input 	type="text"
+                        name="rendement"
+                        class="form-control"
+                        id="inputRendement"
+                        [(ngModel)]="form.rendement"
+                >
+              </div>
+            </div>
+
+            <!-- Heures production-->
+            <div class="form-group row">
+              <label for="inputHeure_production" class="col-12 text-center text-sm-left col-sm-5  col-lg-3 col-form-label">Heures production</label>
+              <div class="col-12 col-sm-7  col-lg-9">
+                <input 	type="text"
+                        name="heure_production"
+                        class="form-control"
+                        id="inputHeure_production"
+                        [(ngModel)]="form.heure_production"
+                >
+              </div>
+            </div>
+
+            <!-- Heures service-->
+            <div class="form-group row">
+              <label for="inputHeures_service" class="col-12 text-center text-sm-left col-sm-5  col-lg-3 col-form-label">Heures service</label>
+              <div class="col-12 col-sm-7  col-lg-9">
+                <input 	type="text"
+                        name="heures_service"
+                        class="form-control"
+                        id="inputHeures_service"
+                        [(ngModel)]="form.heures_service"
+                >
+              </div>
+            </div>
+
+            <!-- Chaîne cassée-->
+            <div class="form-group row">
+              <label for="inputChaine_cassee" class="col-12 text-center text-sm-left col-sm-5  col-lg-3 col-form-label">Chaîne cassée</label>
+              <div class="col-12 col-sm-7  col-lg-9">
+                <input 	type="text"
+                        name="chaine_cassee"
+                        class="form-control"
+                        id="inputChaine_cassee"
+                        [(ngModel)]="form.chaine_cassee"
+                >
+              </div>
+            </div>
+
+            <!-- Trame cassée-->
+            <div class="form-group row">
+              <label for="inputTrame_cassee" class="col-12 text-center text-sm-left col-sm-5  col-lg-3 col-form-label">Trame cassée</label>
+              <div class="col-12 col-sm-7  col-lg-9">
+                <input 	type="text"
+                        name="trame_cassee"
+                        class="form-control"
+                        id="inputTrame_cassee"
+                        [(ngModel)]="form.trame_cassee"
+                >
+              </div>
+            </div>
+
+            <!-- Fin trame-->
+            <div class="form-group row">
+              <label for="inputFin_trame" class="col-12 text-center text-sm-left col-sm-5  col-lg-3 col-form-label">Fin trame</label>
+              <div class="col-12 col-sm-7  col-lg-9">
+                <input 	type="text"
+                        name="fin_trame"
+                        class="form-control"
+                        id="inputFin_trame"
+                        [(ngModel)]="form.fin_trame"
+                >
+              </div>
+            </div>
+
+            <!-- Compteur-->
+            <div class="form-group row">
+              <label for="inputCompteur" class="col-12 text-center text-sm-left col-sm-5  col-lg-3 col-form-label">Compteur</label>
+              <div class="col-12 col-sm-7  col-lg-9">
+                <input 	type="text"
+                        name="compteur"
+                        class="form-control"
+                        id="inputCompteur"
+                        [(ngModel)]="form.compteur"
+                >
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-12 text-center">
+                <!-- Submit button-->
+                <button type="submit"
+                        class="btn btn-primary"
+                >
+                  Enregistrer Rendement
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
